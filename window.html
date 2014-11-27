@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html data-ng-app="contactApp" data-ng-csp>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body >
+		<div data-ng-controller="tabsController">
+			<select data-ng-model="selected" data-ng-options="tab for tab in tabs"></select> {{ selected }}
+			<div ng-switch on="selected">
+				<div data-ng-controller="friendsController">
+				<br>
+					<div  data-ng-switch-when="View">
+					Name: <input type="text" data-ng-model="nameFilteringText.name" /> 
+						<br/>
+						<div>
+							<ul>
+								<li ng-repeat="friend in contacts.friends | filter:nameFilteringText"  > name: {{ friend.name }} <br/> email: {{friend.email}}  </li>
+							</ul>
+						</div>
+						Add a new Contact! <br>
+						Name:<input type="text" data-ng-model="contacts.newname"/> 
+						Email:<input type="text" data-ng-model="contacts.newemail"/> 
+						<br />
+						<br />
+						<button data-ng-click="addContact()">Add Contact</button>
+					</div>
+					<div data-ng-switch-default>Default</div>
+				</div>
+			</div>
+		</div>
+	<script src="scripts/angular.min.js"/></script>
+	<script src="scripts/angular-animate.min.js"></script>
+	<script src="scripts/angular-resource.min.js"></script>
+	<script src="js/app.js"></script>
+
+	</body>
+</html>

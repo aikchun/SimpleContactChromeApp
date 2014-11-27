@@ -1,0 +1,16 @@
+{
+  "name": "Hello World!",
+  "description": "My first Chrome App.",
+  "version": "0.1",
+  "minimum_chrome_version": "23",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "icons": { 
+	  "16": "icons-390-1.png",
+	  "128": "icons-390-2.png" 
+  }
+}
